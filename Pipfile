@@ -15,6 +15,7 @@ flask = "*"
 requests = "*"
 numpy = "*"
 nb-black = "*"
+jinja2 = "*"
 
 [requires]
 python_version = "3.7"
