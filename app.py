@@ -91,10 +91,10 @@ def welcome():
     return (
         f"Welcome to the Surfs Up API<br/>"
         f"Available Routes:<br/>"
-        f"/api/v1.0/precipitation<br/>"
-        f"/api/v1.0/stations<br/>"
-        f"/api/v1.0/tobs<br/>"
-        f"/api/v1.0/tempquery<br/>"
+        f"<strong>/api/v1.0/precipitation</strong> &nbsp;&nbsp; <i>Returns JSON dictionary for 1 year of precipitation results</i><br/>"
+        f"<strong>/api/v1.0/stations</strong>  &nbsp;&nbsp; <i>Returns a JSON list of the stations</i><br/>"
+        f"<strong>/api/v1.0/tobs</strong>  &nbsp;&nbsp; <i>Returns a JSON list of dates and tobs for 1 year from the businest station</i><br/>"
+        f"<strong>/api/v1.0/</strong>   &nbsp;&nbsp; <i>Returns TMIN, TAVE, and TMAX from start-date/end-date. Date format=yyyy-mm-dd**</i><br/>"
     )
 
 
@@ -113,7 +113,7 @@ def tobs():
     return jsonify(temp_dict)
 
 
-@app.route("/api/v1.0/tempquery/<start>/<end>")
+@app.route("/api/v1.0/<start>/<end>")
 def range_temps(start, end):
     try:
         temps = (
@@ -132,7 +132,7 @@ def range_temps(start, end):
     return "Date not found!", 404
 
 
-@app.route("/api/v1.0/tempquery/<start>")
+@app.route("/api/v1.0/<start>")
 def start_temp(start):
     try:
         temps = (
